@@ -1,14 +1,14 @@
-# Description:
-#     Convert a decimal number to MAIAC quality flags
-#
-# Usage:
-#     QA2Char(num)
-#
-# Arguments:
-#     @ num: a decimal number less than 65536.
-#
-# Value:
-#     It returns an array of strings regarding the MAIAC QA flags
+#' Convert Decimal to MAIAC Quality Flags
+#'
+#' Convert a decimal number to MAIAC quality flags
+#'
+#' @param num a decimal number less than or equal to 2^16 (since the QA flag only has 16 digits)
+#'
+#' @return An array of strings regarding the MAIAC QA flags
+#'
+#' @examples
+#' QA2Char(8)
+#' @export
 
 QA2Char <- function(num) {
 

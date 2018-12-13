@@ -1,19 +1,17 @@
-# Description:
-#     Read MCD19A2 HDF files
-#
-# Usage:
-#     readMCD19A2(file.name, latlong.range = NULL, border.shp = NULL)
-#
-# Arguments:
-#     @ file.name: the name of input HDF file. It has to have an absolute path.
-#     @ latlong.range: the lat/long range with the structure `c(lon.min, lon.max, lat.min, lat.max)`.
-#     @ border.shp: it is a shape file (class SpatialPolygonsDataFrame)
-#
-# Value:
-#     It returns a list with time stamps and MAIAC AOD data in multiple bands
-#
-# Notice:
-#     * The `latlong.range` and `border.shp` cannot be used at the same time
+#' Read MCD19A2 HDF-4 Files
+#'
+#' Read MCD19A2 HDF-4 files
+#'
+#' @param file.name the name of input HDF file with an \emph{absolute} path
+#' @param latlong.range the lat/long range with the structure \code{c(lon.min, lon.max, lat.min, lat.max)}, cannot be used with \code{border.shp}
+#' @param border.shp a shapefile (class SpatialPolygonsDataFrame), cannot be used with \code{latlong.range}
+#'
+#' @return A list with time stamps and MAIAC AOD data in multiple bands
+#'
+#' @examples
+#' readMCD19A2(file.name = '/path/file.HDF', latlong.range = c(132, 133, 56, 57))
+#' readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
+#' @export
 
 
 readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {

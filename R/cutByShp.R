@@ -1,15 +1,15 @@
-# Description:
-#     Cut a data frame by a shapefile
-#
-# Usage:
-#     cutByShp(myshp, dat)
-#
-# Arguments:
-#     @ myshp: the shape file (class SpatialPolygonsDataFrame)
-#     @ dat: the data frame used to be cut
-#
-# Value:
-#     It returns a subset of the data frame cut by the shapefile
+#' Cut A Data Frame by A Shapefile
+#'
+#' Cut a data frame by a shapefile
+#'
+#' @param myshp the shapefile (class SpatialPolygonsDataFrame)
+#' @param dat the data frame to be cut
+#'
+#' @return A subset of the data frame cut by the shapefile
+#'
+#' @examples
+#' cutByShp(myshp = shp, dat = df)
+#' @export
 
 cutByShp <- function(myshp, dat, lat.name, long.name) {
 
