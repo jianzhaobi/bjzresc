@@ -8,7 +8,7 @@
 #' @return A subset of the data frame cut by the shapefile
 #'
 #' @examples
-#' cutByShp(myshp = shp, dat = df)
+#' cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')
 #' @export
 
 cutByShp <- function(myshp, dat, lat.name, long.name) {

@@ -18,5 +18,5 @@ A subset of the data frame cut by the shapefile
 Cut a data frame by a shapefile
 }
 \examples{
-cutByShp(myshp = shp, dat = df)
+cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')
 }
