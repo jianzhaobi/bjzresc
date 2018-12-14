@@ -9,7 +9,9 @@
 #' @return A list with time stamps and MAIAC AOD data in multiple bands
 #'
 #' @examples
+#' # Using lat/long coordinates to clip the data
 #' readMCD19A2(file.name = '/path/file.HDF', latlong.range = c(132, 133, 56, 57))
+#' # Using a polygon to clip the data
 #' readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
 #' @export
 

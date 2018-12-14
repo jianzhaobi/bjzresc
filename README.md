@@ -42,7 +42,9 @@ readMCD19A2(file.name, latlong.range = NULL, border.shp = NULL)
 	* A list with time stamps and MAIAC AOD data in multiple bands
 * ***Examples***
 ``` R
+# Using lat/long coordinates to clip the data
 readMCD19A2(file.name = '/path/file.HDF', latlong.range = c(132, 133, 56, 57))
+# Using a polygon to clip the data
 readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
 ```
 
@@ -51,7 +53,8 @@ readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
 	* The R Package Development Cheatsheet can be found [here](https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf).
 * The README documentation of this github project is edited by [StackEdit](https://stackedit.io/). 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTk2OTE2MTEsLTEwNTQ0MzQ5MzIsLT
-E4MjkxMTk1MTIsMTI5MjgzOTEwMiw0NDQyNTE4MzMsMzI4MTE0
-ODE0LDExNjEzNjEwNywxMDk5ODk3Njg4XX0=
+eyJoaXN0b3J5IjpbLTE4MDU5NzcwNTksLTExMTk2OTE2MTEsLT
+EwNTQ0MzQ5MzIsLTE4MjkxMTk1MTIsMTI5MjgzOTEwMiw0NDQy
+NTE4MzMsMzI4MTE0ODE0LDExNjEzNjEwNywxMDk5ODk3Njg4XX
+0=
 -->
