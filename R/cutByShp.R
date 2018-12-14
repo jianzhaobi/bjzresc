@@ -1,11 +1,13 @@
-#' Cut A Data Frame by A Shapefile
+#' Clip A Data Frame by A Shapefile
 #'
-#' Cut a data frame by a shapefile
+#' Clip a data frame by a shapefile
 #'
-#' @param myshp the shapefile (class SpatialPolygonsDataFrame)
-#' @param dat the data frame to be cut
+#' @param myshp the shapefile (class SpatialPolygonsDataFrame) that must be based on WGS84 coordinate system
+#' @param dat the data frame to be cut that must include WGS84 lat/long coordinates
+#' @param lat.name the name of the column about latitude in \code{dat}
+#' @param long.name the name of the column about longitude in \code{dat}
 #'
-#' @return A subset of the data frame cut by the shapefile
+#' @return A subset of the data frame clipped by the shapefile
 #'
 #' @examples
 #' cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')

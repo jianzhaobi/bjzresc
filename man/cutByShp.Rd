@@ -2,20 +2,24 @@
 % Please edit documentation in R/cutByShp.R
 \name{cutByShp}
 \alias{cutByShp}
-\title{Cut A Data Frame by A Shapefile}
+\title{Clip A Data Frame by A Shapefile}
 \usage{
 cutByShp(myshp, dat, lat.name, long.name)
 }
 \arguments{
-\item{myshp}{the shapefile (class SpatialPolygonsDataFrame)}
+\item{myshp}{the shapefile (class SpatialPolygonsDataFrame) that must be based on WGS84 coordinate system}
 
-\item{dat}{the data frame to be cut}
+\item{dat}{the data frame to be cut that must include WGS84 lat/long coordinates}
+
+\item{lat.name}{the name of the column about latitude in \code{dat}}
+
+\item{long.name}{the name of the column about longitude in \code{dat}}
 }
 \value{
-A subset of the data frame cut by the shapefile
+A subset of the data frame clipped by the shapefile
 }
 \description{
-Cut a data frame by a shapefile
+Clip a data frame by a shapefile
 }
 \examples{
 cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')
