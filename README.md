@@ -9,7 +9,8 @@ To get the current development version from github:
 devtools::install_github("jianzhaobi/bjzresc")
 ```
 # Main Functions
-### Tools
+## Tools
+### cutByShp
 ``` R
 cutByShp(myshp, dat, lat.name, long.name)
 ```
@@ -26,7 +27,8 @@ cutByShp(myshp, dat, lat.name, long.name)
 ```R
 cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')
 ```
-### MCD19A2 (MAIAC AOD)
+## MCD19A2 (MAIAC AOD)
+### readMCD19A2
 ``` R
 readMCD19A2(file.name, latlong.range = NULL, border.shp = NULL)
 ```
@@ -49,7 +51,7 @@ readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
 	* The R Package Development Cheatsheet can be found [here](https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf).
 * The README documentation of this github project is edited by [StackEdit](https://stackedit.io/). 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTQ0MzQ5MzIsLTE4MjkxMTk1MTIsMT
-I5MjgzOTEwMiw0NDQyNTE4MzMsMzI4MTE0ODE0LDExNjEzNjEw
-NywxMDk5ODk3Njg4XX0=
+eyJoaXN0b3J5IjpbLTExMTk2OTE2MTEsLTEwNTQ0MzQ5MzIsLT
+E4MjkxMTk1MTIsMTI5MjgzOTEwMiw0NDQyNTE4MzMsMzI4MTE0
+ODE0LDExNjEzNjEwNywxMDk5ODk3Njg4XX0=
 -->
