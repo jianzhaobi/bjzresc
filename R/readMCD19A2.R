@@ -49,19 +49,19 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
     # --- Convert the data to raster --- #
     # Optical_Depth_047
     gdal_translate(sds[1], dst_dataset = 'tmp047.tiff', b = nband) # mask is band number
-    print(sds[1])
+    # print(sds[1])
     r.047 <- raster('tmp047.tiff')
     # Optical_Depth_055
     gdal_translate(sds[2], dst_dataset = 'tmp055.tiff', b = nband)
-    print(sds[2])
+    # print(sds[2])
     r.055 <- raster('tmp055.tiff')
     # AOD_Uncertainty
     gdal_translate(sds[3], dst_dataset = 'tmpuncert.tiff', b = nband)
-    print(sds[3])
+    # print(sds[3])
     r.uncert <- raster('tmpuncert.tiff')
     # AOD_QA
     gdal_translate(sds[6], dst_dataset = 'tmpqa.tiff', b = nband)
-    print(sds[6])
+    # print(sds[6])
     r.qa <- raster('tmpqa.tiff')
 
     # --- Convert the raster to data frame --- #
