@@ -10,9 +10,9 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
 \arguments{
 \item{site.csv}{a absolute path to the site CSV file (from \code{getPurpleairLst}).}
 
-\item{start.date}{the beginning date with the format "YYYY-MM-DD".}
+\item{start.date}{the beginning date in the format "YYYY-MM-DD".}
 
-\item{end.date}{the end date with the format "YYYY-MM-DD".}
+\item{end.date}{the end date in the format "YYYY-MM-DD".}
 
 \item{output.path}{the path to output CSV files.}
 

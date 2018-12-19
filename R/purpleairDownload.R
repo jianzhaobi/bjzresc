@@ -3,8 +3,8 @@
 #' Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
 #'
 #' @param site.csv a absolute path to the site CSV file (from \code{getPurpleairLst}).
-#' @param start.date the beginning date with the format "YYYY-MM-DD".
-#' @param end.date the end date with the format "YYYY-MM-DD".
+#' @param start.date the beginning date in the format "YYYY-MM-DD".
+#' @param end.date the end date in the format "YYYY-MM-DD".
 #' @param output.path the path to output CSV files.
 #' @param average get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily"
 #' @param time.zone time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.

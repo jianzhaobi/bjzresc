@@ -122,7 +122,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 * ***Description***
 	* Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
 * ***Parameters***
-	* `site.csv`: a absolute path to the site CSV file (obtain by get_sensorlist_json).
+	* `site.csv`: a absolute path to the site CSV file (from `getPurpleairLst`).
 	* `start.date`: the beginning date with the format `YYYY-MM-DD`.
 	* `end.date`: the end date with the format `YYYY-MM-DD`.
 	* `output.path`: the path to output CSV files.
@@ -160,11 +160,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyNzM4MTMwNCwtNjM2OTUxMjM5LDEwNT
-M0NTEyNzksLTE2Mzk4NDkwNDUsLTcwNzAyMDk1NywtMTQ3NDAw
-NTA0MSwtNTI1MzcxODE5LDQ0MDU0NDMyNSwxNjEwNTkyOTMwLC
-0xODgxNzA5OTY4LC01OTQ0ODcxMCwtMTgwNTk3NzA1OSwtMTEx
-OTY5MTYxMSwtMTA1NDQzNDkzMiwtMTgyOTExOTUxMiwxMjkyOD
-M5MTAyLDQ0NDI1MTgzMywzMjgxMTQ4MTQsMTE2MTM2MTA3LDEw
-OTk4OTc2ODhdfQ==
+eyJoaXN0b3J5IjpbMTQ4ODgzMzYwMywyMTI3MzgxMzA0LC02Mz
+Y5NTEyMzksMTA1MzQ1MTI3OSwtMTYzOTg0OTA0NSwtNzA3MDIw
+OTU3LC0xNDc0MDA1MDQxLC01MjUzNzE4MTksNDQwNTQ0MzI1LD
+E2MTA1OTI5MzAsLTE4ODE3MDk5NjgsLTU5NDQ4NzEwLC0xODA1
+OTc3MDU5LC0xMTE5NjkxNjExLC0xMDU0NDM0OTMyLC0xODI5MT
+E5NTEyLDEyOTI4MzkxMDIsNDQ0MjUxODMzLDMyODExNDgxNCwx
+MTYxMzYxMDddfQ==
 -->
