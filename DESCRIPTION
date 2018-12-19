@@ -1,15 +1,17 @@
 Package: bjzresc
 Type: Package
-Title: Research-related functions
-Version: 0.1.0
+Title: Jianzhao's Research-Related Functions
+Version: 0.1.1
 Author: Jianzhao Bi
 Maintainer: Jianzhao Bi <jianzhao.bi@emory.edu>
 Description: Air pollution research-related functions made by Jianzhao Bi
-License: <>
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Imports: sp,
+Suggests: sp,
     raster,
+    rgdal,
     gdalUtils,
-    rgdal
+    rjson,
+    httpuv
