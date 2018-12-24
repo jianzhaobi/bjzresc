@@ -114,7 +114,7 @@ export LD_LIBRARY_PATH=~/gcc-5.2.0/lib64:$LD_LIBRARY_PATH
 to your `~/.bashrc`.
 
 ### Install `ZLIB` and `JPEG`
-ZLIB binaries can be downloaded [here](https://zlib.net/) and JPEG binaries can be downloaded [here](https://www.ijg.org/). 
+ZLIB binaries can be downloaded from [here](https://zlib.net/) and JPEG binaries can be downloaded from [here](https://www.ijg.org/). 
 ``` bash
 # Install ZLIB
 cd zlib # Extracted from `zlib.tar.gz`
@@ -151,7 +151,7 @@ gmake install-examples
 gmake installcheck
 ```
 ### Intall `GDAL`
-GDAL binaries can be downloaded on https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries.
+GDAL binaries can be downloaded from [here](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries).
 ``` bash
 cd gdal # Extracted from `gdal.tar.gz`
 # Install GDAL with HDF4 support
@@ -191,11 +191,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTQ2Mjg5MjcsNDcwMzI2Mzc3LDE5Nz
-k0NzQ4MTgsLTEwNDU0NTc2NDksLTM0NjE2MDQ0MSw2MjkyNDcy
-OTMsMzgyOTkzNjUxLDM3MDc0NDMwLC0zNzYxODU5NjYsLTE5Mj
-UxMDY1NzcsMTQzNTAyNTgyNiwtMTkyNTEwNjU3NywtNjEyMTU0
-NDk1LDE0ODg4MzM2MDMsMjEyNzM4MTMwNCwtNjM2OTUxMjM5LD
-EwNTM0NTEyNzksLTE2Mzk4NDkwNDUsLTcwNzAyMDk1NywtMTQ3
-NDAwNTA0MV19
+eyJoaXN0b3J5IjpbNDI4Njg3MTU5LC0xNDE0NjI4OTI3LDQ3MD
+MyNjM3NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0
+NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMzc2MT
+g1OTY2LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUxMDY1
+NzcsLTYxMjE1NDQ5NSwxNDg4ODMzNjAzLDIxMjczODEzMDQsLT
+YzNjk1MTIzOSwxMDUzNDUxMjc5LC0xNjM5ODQ5MDQ1LC03MDcw
+MjA5NTddfQ==
 -->
