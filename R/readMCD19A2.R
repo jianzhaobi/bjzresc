@@ -111,7 +111,9 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
     if (!is.null(border.shp)) { # Using shapefile
       maiac.df.sub <- cutByShp(myshp = border.shp, dat = maiac.df.new, lat.name = 'Lat', long.name = 'Lon')
     }
-
+    if (is.null(latlong.range) & is.null(border.shp)) { # Don't cut
+      maiac.df.sub <- maiac.df.new
+    }
 
     if (nrow(maiac.df.sub) > 0) {
       # --- Add Time Stamp --- #
