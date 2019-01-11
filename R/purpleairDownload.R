@@ -22,7 +22,10 @@
 
 purpleairDownload <- function(site.csv, start.date, end.date, output.path, average, time.zone = 'GMT', indoor = F) {
 
-  if (!require(httpuv)) install.packages('httpuv')
+  if (!require('httpuv')) {
+    install.packages('httpuv')
+    library(httpuv)
+  }
 
   # Read the lastest sensor list
   sites <- read.csv(site.csv, as.is = T)

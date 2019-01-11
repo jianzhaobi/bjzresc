@@ -15,8 +15,14 @@
 
 cutByShp <- function(myshp, dat, lat.name, long.name) {
 
-  if(!require('sp')) install.packages('sp')
-  if(!require('raster')) install.packages('raster')
+  if(!require('sp')) {
+    install.packages('sp')
+    library(sp)
+  }
+  if(!require('raster')) {
+    install.packages('raster')
+    library(raster)
+  }
 
   # Change the lat/long names to 'x' and 'y'
   lat.idx <- grep(lat.name, colnames(dat))

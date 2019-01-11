@@ -10,7 +10,10 @@
 
 getPurpleairLst <- function(output.path) {
 
-  if(!require(rjson)) install.packages('rjson')
+  if(!require('rjson')) {
+    install.packages('rjson')
+    library(rjson)
+  }
 
   # Make output path
   if(!file.exists(output.path)) {

@@ -18,9 +18,18 @@
 
 readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
 
-  if(!require('gdalUtils')) install.packages('gdalUtils')
-  if(!require('raster')) install.packages('raster')
-  if(!require('rgdal')) install.packages('rgdal')
+  if(!require('gdalUtils')) {
+    install.packages('gdalUtils')
+    library(gdalUtils)
+  }
+  if(!require('raster')) {
+    install.packages('raster')
+    library(raster)
+  }
+  if(!require('rgdal')) {
+    install.packages('rgdal')
+    library(rgdal)
+  }
 
   # Check if latlong.range and border.shp exist as the same time
   if (!is.null(latlong.range) & !is.null(border.shp)) {
