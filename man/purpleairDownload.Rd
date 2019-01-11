@@ -8,7 +8,7 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
   time.zone = "GMT", indoor = F)
 }
 \arguments{
-\item{site.csv}{a absolute path to the site CSV file (from \code{getPurpleairLst}).}
+\item{site.csv}{a data frame of a site list or a absolute path to the site CSV file (from \code{getPurpleairLst}).}
 
 \item{start.date}{the beginning date in the format "YYYY-MM-DD".}
 
@@ -16,7 +16,7 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
 
 \item{output.path}{the path to output CSV files.}
 
-\item{average}{get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily"}
+\item{average}{get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.}
 
 \item{time.zone}{time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.}
 

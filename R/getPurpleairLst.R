@@ -4,11 +4,16 @@
 #'
 #' @param output.path the path of the output CSV file.
 #'
+#' @return The latest PurpleAir sensor list as the data frame format
+#'
 #' @examples
-#' getPurpleairLst('/path')
+#' # Save as a CSV file
+#' getPurpleairLst('/absolute/path/to/the/csv/file')
+#' # Save as a data frame variable
+#' sensor.lst <- getPurpleairLst()
 #' @export
 
-getPurpleairLst <- function(output.path) {
+getPurpleairLst <- function(output.path = NULL) {
 
   if(!require('rjson')) {
     install.packages('rjson')
@@ -16,7 +21,7 @@ getPurpleairLst <- function(output.path) {
   }
 
   # Make output path
-  if(!file.exists(output.path)) {
+  if(!is.null(output.path) && !file.exists(output.path)) {
     dir.create(output.path, recursive = T)
   }
 
@@ -34,7 +39,9 @@ getPurpleairLst <- function(output.path) {
     sensor.df <- rbind(sensor.df, sensor.i)
   }
   # Write CSV
-  write.csv(sensor.df, file = paste(output.path, '/sensorlist', '_', Sys.Date(), '.csv', sep = ''), row.names = F)
+  if (!is.null(output.path)) {
+    write.csv(sensor.df, file = paste(output.path, '/sensorlist', '_', Sys.Date(), '.csv', sep = ''), row.names = F)
+  }
 
   return(sensor.df)
 

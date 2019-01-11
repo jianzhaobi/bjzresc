@@ -4,14 +4,20 @@
 \alias{getPurpleairLst}
 \title{Get a list of PurpleAir sensors}
 \usage{
-getPurpleairLst(output.path)
+getPurpleairLst(output.path = NULL)
 }
 \arguments{
 \item{output.path}{the path of the output CSV file.}
+}
+\value{
+The latest PurpleAir sensor list as the data frame format
 }
 \description{
 Get a list of the latest PurpleAir sensors from PurpleAir JSON (\link{https://www.purpleair.com/json}) and save as a CSV file.
 }
 \examples{
-getPurpleairLst('/path')
+# Save as a CSV file
+getPurpleairLst('/absolute/path/to/the/csv/file')
+# Save as a data frame variable
+sensor.lst <- getPurpleairLst()
 }

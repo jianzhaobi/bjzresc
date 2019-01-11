@@ -2,11 +2,11 @@
 #'
 #' Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
 #'
-#' @param site.csv a absolute path to the site CSV file (from \code{getPurpleairLst}).
+#' @param site.csv a data frame of a site list or a absolute path to the site CSV file (from \code{getPurpleairLst}).
 #' @param start.date the beginning date in the format "YYYY-MM-DD".
 #' @param end.date the end date in the format "YYYY-MM-DD".
 #' @param output.path the path to output CSV files.
-#' @param average get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily"
+#' @param average get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
 #' @param time.zone time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.
 #' @param indoor whether includes indoor sites (FALSE by default).
 #'
@@ -28,7 +28,13 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
   }
 
   # Read the lastest sensor list
-  sites <- read.csv(site.csv, as.is = T)
+  if (class(site.csv) == 'data.frame') {
+    sites <- site.csv
+  } else if (class(site.csv) == 'character') {
+    sites <- read.csv(site.csv, as.is = T)
+  } else {
+    stop('Illegal CSV variable name!')
+  }
 
   # Start date and end date
   start_date <- as.Date(start.date)
