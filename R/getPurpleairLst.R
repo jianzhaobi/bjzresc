@@ -36,6 +36,8 @@ getPurpleairLst <- function(output.path) {
   # Write CSV
   write.csv(sensor.df, file = paste(output.path, '/sensorlist', '_', Sys.Date(), '.csv', sep = ''), row.names = F)
 
+  return(sensor.df)
+
 }
 
 
