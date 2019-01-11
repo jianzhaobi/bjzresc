@@ -52,15 +52,20 @@ readMCD19A2(file.name = '/path/file.HDF', border.shp = myshp)
 ## PurpleAir Low-Cost PM Data
 ### getPurpleairLst
 ``` R
-getPurpleairLst(output.path)
+getPurpleairLst(output.path = NULL)
 ```
 * ***Description***
 	* Get a list of the latest PurpleAir sensors from PurpleAir JSON (https://www.purpleair.com/json) and save as a CSV file.
 * ***Parameters***
-	* `output.path`: the path of the output CSV file
+	* `output.path`: the path of the output CSV file. By default, this variable equals `NULL` and the list is saved as a data frame.
+* ***Return***
+	* The latest PurpleAir sensor list as the data frame format
 * ***Examples***
 ``` R
-getPurpleairLst('/path')
+# Save as a CSV file 
+getPurpleairLst('/absolute/path/to/the/csv/file')
+# Save as a data frame variable
+sensor.lst <- getPurpleairLst()
 ``` 
 ### purpleairDownload
 ``` R
@@ -69,16 +74,16 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 * ***Description***
 	* Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
 * ***Parameters***
-	* `site.csv`: a absolute path to the site CSV file (from `getPurpleairLst`).
+	* `site.csv`: a data frame of a site list or a absolute path to the site CSV file (from `getPurpleairLst`).
 	* `start.date`: the beginning date in the format `YYYY-MM-DD`.
 	* `end.date`: the end date in the format `YYYY-MM-DD`.
 	* `output.path`: the path to output CSV files.
-	* `average`: get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily"
+	* `average`: get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
 	* `time.zone`: time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.
 	* `indoor`: whether includes indoor sites (`FALSE` by default).
 * ***Examples***
 ``` R
-purpleairDownload(site.csv = '/path/sensorlist.csv',
+purpleairDownload(site.csv = '/absolute/path/to/the/sensorlist.csv',
 	start.date = '2017-01-01',
 	end.date = '2017-12-31',
 	output.path = '/output_path',
@@ -191,11 +196,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI4Njg3MTU5LC0xNDE0NjI4OTI3LDQ3MD
-MyNjM3NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0
-NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMzc2MT
-g1OTY2LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUxMDY1
-NzcsLTYxMjE1NDQ5NSwxNDg4ODMzNjAzLDIxMjczODEzMDQsLT
-YzNjk1MTIzOSwxMDUzNDUxMjc5LC0xNjM5ODQ5MDQ1LC03MDcw
-MjA5NTddfQ==
+eyJoaXN0b3J5IjpbMjg1ODE1NTczLDQyODY4NzE1OSwtMTQxND
+YyODkyNyw0NzAzMjYzNzcsMTk3OTQ3NDgxOCwtMTA0NTQ1NzY0
+OSwtMzQ2MTYwNDQxLDYyOTI0NzI5MywzODI5OTM2NTEsMzcwNz
+Q0MzAsLTM3NjE4NTk2NiwtMTkyNTEwNjU3NywxNDM1MDI1ODI2
+LC0xOTI1MTA2NTc3LC02MTIxNTQ0OTUsMTQ4ODgzMzYwMywyMT
+I3MzgxMzA0LC02MzY5NTEyMzksMTA1MzQ1MTI3OSwtMTYzOTg0
+OTA0NV19
 -->

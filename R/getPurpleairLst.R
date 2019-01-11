@@ -2,7 +2,7 @@
 #'
 #' Get a list of the latest PurpleAir sensors from PurpleAir JSON (\link{https://www.purpleair.com/json}) and save as a CSV file.
 #'
-#' @param output.path the path of the output CSV file.
+#' @param output.path the path of the output CSV file. By default, this variable equals \code{NULL} and the list is saved as a data frame.
 #'
 #' @return The latest PurpleAir sensor list as the data frame format
 #'
