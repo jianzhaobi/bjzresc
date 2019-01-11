@@ -94,8 +94,8 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
             cat(as.character(this.day), '\r')
 
             # --- Time range for a day ---
-            starttime <- encodeURI(paste(this.day, '00:00:00')) # UTC Time !!!
-            endtime <- encodeURI(paste(this.day, '23:59:59')) # UTC Time !!!
+            starttime <- httpuv::encodeURI(paste(this.day, '00:00:00')) # UTC Time !!!
+            endtime <- httpuv::encodeURI(paste(this.day, '23:59:59')) # UTC Time !!!
 
             # --- URL ---
             # Channel A
