@@ -18,7 +18,7 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
 
 \item{average}{get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.}
 
-\item{time.zone}{time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.}
+\item{time.zone}{time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see \link{https://www.mathworks.com/help/thingspeak/time-zones-reference.html}.}
 
 \item{indoor}{whether includes indoor sites (FALSE by default).}
 }

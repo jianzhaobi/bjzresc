@@ -79,7 +79,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 	* `end.date`: the end date in the format `YYYY-MM-DD`.
 	* `output.path`: the path to output CSV files.
 	* `average`: get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
-	* `time.zone`: time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning.
+	* `time.zone`: time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see https://www.mathworks.com/help/thingspeak/time-zones-reference.html.
 	* `indoor`: whether includes indoor sites (`FALSE` by default).
 * ***Examples***
 ``` R
@@ -196,11 +196,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg1ODE1NTczLDQyODY4NzE1OSwtMTQxND
-YyODkyNyw0NzAzMjYzNzcsMTk3OTQ3NDgxOCwtMTA0NTQ1NzY0
-OSwtMzQ2MTYwNDQxLDYyOTI0NzI5MywzODI5OTM2NTEsMzcwNz
-Q0MzAsLTM3NjE4NTk2NiwtMTkyNTEwNjU3NywxNDM1MDI1ODI2
-LC0xOTI1MTA2NTc3LC02MTIxNTQ0OTUsMTQ4ODgzMzYwMywyMT
-I3MzgxMzA0LC02MzY5NTEyMzksMTA1MzQ1MTI3OSwtMTYzOTg0
-OTA0NV19
+eyJoaXN0b3J5IjpbMTkwNDEzMjk3MywyODU4MTU1NzMsNDI4Nj
+g3MTU5LC0xNDE0NjI4OTI3LDQ3MDMyNjM3NywxOTc5NDc0ODE4
+LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0NDEsNjI5MjQ3MjkzLDM4Mj
+k5MzY1MSwzNzA3NDQzMCwtMzc2MTg1OTY2LC0xOTI1MTA2NTc3
+LDE0MzUwMjU4MjYsLTE5MjUxMDY1NzcsLTYxMjE1NDQ5NSwxND
+g4ODMzNjAzLDIxMjczODEzMDQsLTYzNjk1MTIzOSwxMDUzNDUx
+Mjc5XX0=
 -->
