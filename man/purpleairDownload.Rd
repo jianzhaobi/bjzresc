@@ -26,7 +26,7 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
 Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
 }
 \examples{
-purpleairDownload(site.csv = '/path/sensorlist.csv',
+purpleairDownload(site.csv = '/absolute/path/to/the/sensorlist.csv',
     start.date = '2017-01-01',
     end.date = '2017-12-31',
     output.path = '/output_path',
