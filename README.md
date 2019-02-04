@@ -156,7 +156,7 @@ gmake install-examples
 gmake installcheck
 ```
 ### Intall `GDAL`
-GDAL binaries can be downloaded from [here](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries).
+GDAL binaries can be downloaded from [here](https://trac.osgeo.org/gdal/wiki/DownloadSource).
 ``` bash
 cd gdal # Extracted from `gdal.tar.gz`
 # Install GDAL with HDF4 support
@@ -196,11 +196,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDEzMjk3MywyODU4MTU1NzMsNDI4Nj
-g3MTU5LC0xNDE0NjI4OTI3LDQ3MDMyNjM3NywxOTc5NDc0ODE4
-LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0NDEsNjI5MjQ3MjkzLDM4Mj
-k5MzY1MSwzNzA3NDQzMCwtMzc2MTg1OTY2LC0xOTI1MTA2NTc3
-LDE0MzUwMjU4MjYsLTE5MjUxMDY1NzcsLTYxMjE1NDQ5NSwxND
-g4ODMzNjAzLDIxMjczODEzMDQsLTYzNjk1MTIzOSwxMDUzNDUx
-Mjc5XX0=
+eyJoaXN0b3J5IjpbLTE5MTc0OTc5MTksMTkwNDEzMjk3MywyOD
+U4MTU1NzMsNDI4Njg3MTU5LC0xNDE0NjI4OTI3LDQ3MDMyNjM3
+NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0NDEsNj
+I5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMzc2MTg1OTY2
+LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUxMDY1NzcsLT
+YxMjE1NDQ5NSwxNDg4ODMzNjAzLDIxMjczODEzMDQsLTYzNjk1
+MTIzOV19
 -->
