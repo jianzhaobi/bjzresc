@@ -118,7 +118,7 @@ export LD_LIBRARY_PATH=~/gcc-5.2.0/lib64:$LD_LIBRARY_PATH
 ```
 to your `~/.bashrc`.
 
-### Install `ZLIB`, `JPEG` and `PROJ`
+### Install `ZLIB`, `JPEG`, and `PROJ`
 * ZLIB binaries can be downloaded from [here](https://zlib.net/). 
 * JPEG binaries can be downloaded from [here](https://www.ijg.org/). 
 * PROJ binaries can be downloaded from [here](https://proj4.org/download.html). Make sure to download both `proj.tar.gz` and `proj-datumgrid.zip` 
@@ -210,11 +210,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4OTE2MTI2NywxNzEyNzY1MTE0LC0xOT
-E2MzU1OTgyLC0xOTE3NDk3OTE5LDE5MDQxMzI5NzMsMjg1ODE1
-NTczLDQyODY4NzE1OSwtMTQxNDYyODkyNyw0NzAzMjYzNzcsMT
-k3OTQ3NDgxOCwtMTA0NTQ1NzY0OSwtMzQ2MTYwNDQxLDYyOTI0
-NzI5MywzODI5OTM2NTEsMzcwNzQ0MzAsLTM3NjE4NTk2NiwtMT
-kyNTEwNjU3NywxNDM1MDI1ODI2LC0xOTI1MTA2NTc3LC02MTIx
-NTQ0OTVdfQ==
+eyJoaXN0b3J5IjpbLTkwMDQzMDM4MywtNzg5MTYxMjY3LDE3MT
+I3NjUxMTQsLTE5MTYzNTU5ODIsLTE5MTc0OTc5MTksMTkwNDEz
+Mjk3MywyODU4MTU1NzMsNDI4Njg3MTU5LC0xNDE0NjI4OTI3LD
+Q3MDMyNjM3NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYx
+NjA0NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMz
+c2MTg1OTY2LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUx
+MDY1NzddfQ==
 -->
