@@ -118,19 +118,28 @@ export LD_LIBRARY_PATH=~/gcc-5.2.0/lib64:$LD_LIBRARY_PATH
 ```
 to your `~/.bashrc`.
 
-### Install `ZLIB` and `JPEG`
-ZLIB binaries can be downloaded from [here](https://zlib.net/) and JPEG binaries can be downloaded from [here](https://www.ijg.org/). 
+### Install `ZLIB`, `JPEG` and `PROJ`
+* ZLIB binaries can be downloaded from [here](https://zlib.net/). 
+* JPEG binaries can be downloaded from [here](https://www.ijg.org/). 
+* PROJ binaries can be downloaded from [here](https://proj4.org/download.html). Make sure to download both `proj.tar.gz` and `proj-datumgrid.zip` 
 ``` bash
 # Install ZLIB
 cd zlib # Extracted from `zlib.tar.gz`
-./configure --prefix=/path
+./configure --prefix=/path_to_ZLIB_install_directory
 make test
 # if tests are OK, then
 make install
 
 # Install JPEG
 cd jpeg # Extracted from `jpeg.tar.gz`
-./configure --prefix=/path
+./configure --prefix=/path_to_JPEG_install_directory
+make
+make install
+
+# Install PROJ
+cd proj # Extracted from `proj.tar.gz`
+./configure --prefix=/path_to_PROJ_install_directory
+unzip proj-datumgrid.zip -d proj/data/ # add the datum grids
 make
 make install
 ```
@@ -160,16 +169,16 @@ GDAL binaries can be downloaded from [here](https://trac.osgeo.org/gdal/wiki/Dow
 ``` bash
 cd gdal # Extracted from `gdal.tar.gz`
 # Install GDAL with HDF4 support
-./configure --prefix=/path --with-hdf4=/path_to_HDF4_install_directory
+./configure --prefix=/path_to_GDAL_install_directory --with-hdf4=/path_to_HDF4_install_directory
 make
 make install
 ```
 Add  
 ``` bash
-export PATH=/path/bin:$PATH
-export LD_LIBRARY_PATH=/path/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/path/lib64:$LD_LIBRARY_PATH
-export GDAL_DATA=/path/share/gdal
+export PATH=/path_to_GDAL_install_directory/bin:$PATH
+export LD_LIBRARY_PATH=/path_to_GDAL_install_directory/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/path_to_GDAL_install_directory/lib64:$LD_LIBRARY_PATH
+export GDAL_DATA=/path_to_GDAL_install_directory/share/gdal
 ``` 
 to your `~/.bashrc`.
 
@@ -196,11 +205,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTc0OTc5MTksMTkwNDEzMjk3MywyOD
-U4MTU1NzMsNDI4Njg3MTU5LC0xNDE0NjI4OTI3LDQ3MDMyNjM3
-NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYxNjA0NDEsNj
-I5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMzc2MTg1OTY2
-LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUxMDY1NzcsLT
-YxMjE1NDQ5NSwxNDg4ODMzNjAzLDIxMjczODEzMDQsLTYzNjk1
-MTIzOV19
+eyJoaXN0b3J5IjpbMTcxMjc2NTExNCwtMTkxNjM1NTk4MiwtMT
+kxNzQ5NzkxOSwxOTA0MTMyOTczLDI4NTgxNTU3Myw0Mjg2ODcx
+NTksLTE0MTQ2Mjg5MjcsNDcwMzI2Mzc3LDE5Nzk0NzQ4MTgsLT
+EwNDU0NTc2NDksLTM0NjE2MDQ0MSw2MjkyNDcyOTMsMzgyOTkz
+NjUxLDM3MDc0NDMwLC0zNzYxODU5NjYsLTE5MjUxMDY1NzcsMT
+QzNTAyNTgyNiwtMTkyNTEwNjU3NywtNjEyMTU0NDk1LDE0ODg4
+MzM2MDNdfQ==
 -->
