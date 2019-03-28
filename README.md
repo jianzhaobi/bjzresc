@@ -184,6 +184,11 @@ to your `~/.bashrc`.
 
 In order to run GDAL after installing it is necessary for the shared library to be findable. This can often be accomplished by setting `LD_LIBRARY_PATH` to include `/usr/local/lib`.
 
+### Install R Package `rgdal`
+```R
+install.packages("rgdal", configure.args = c("--with-proj-include=/path/to/proj/include", "--with-proj-lib=/path/to/proj/lib"))
+```
+
 # Miscellaneous
 ## Notes
 * Learn how to turn your code into packages that others can easily download and use: [R packages](http://r-pkgs.had.co.nz/)
@@ -205,11 +210,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMjc2NTExNCwtMTkxNjM1NTk4MiwtMT
-kxNzQ5NzkxOSwxOTA0MTMyOTczLDI4NTgxNTU3Myw0Mjg2ODcx
-NTksLTE0MTQ2Mjg5MjcsNDcwMzI2Mzc3LDE5Nzk0NzQ4MTgsLT
-EwNDU0NTc2NDksLTM0NjE2MDQ0MSw2MjkyNDcyOTMsMzgyOTkz
-NjUxLDM3MDc0NDMwLC0zNzYxODU5NjYsLTE5MjUxMDY1NzcsMT
-QzNTAyNTgyNiwtMTkyNTEwNjU3NywtNjEyMTU0NDk1LDE0ODg4
-MzM2MDNdfQ==
+eyJoaXN0b3J5IjpbLTc4OTE2MTI2NywxNzEyNzY1MTE0LC0xOT
+E2MzU1OTgyLC0xOTE3NDk3OTE5LDE5MDQxMzI5NzMsMjg1ODE1
+NTczLDQyODY4NzE1OSwtMTQxNDYyODkyNyw0NzAzMjYzNzcsMT
+k3OTQ3NDgxOCwtMTA0NTQ1NzY0OSwtMzQ2MTYwNDQxLDYyOTI0
+NzI5MywzODI5OTM2NTEsMzcwNzQ0MzAsLTM3NjE4NTk2NiwtMT
+kyNTEwNjU3NywxNDM1MDI1ODI2LC0xOTI1MTA2NTc3LC02MTIx
+NTQ0OTVdfQ==
 -->
