@@ -81,6 +81,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 	* `average`: get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
 	* `time.zone`: time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see https://www.mathworks.com/help/thingspeak/time-zones-reference.html.
 	* `indoor`: whether includes indoor sites (`FALSE` by default).
+	* `n.thread`: number of parallel threads used to download the data (1 by default).
 * ***Examples***
 ``` R
 purpleairDownload(site.csv = '/absolute/path/to/the/sensorlist.csv',
@@ -210,11 +211,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzYzNjM0MjUsLTkwMDQzMDM4MywtNz
-g5MTYxMjY3LDE3MTI3NjUxMTQsLTE5MTYzNTU5ODIsLTE5MTc0
-OTc5MTksMTkwNDEzMjk3MywyODU4MTU1NzMsNDI4Njg3MTU5LC
-0xNDE0NjI4OTI3LDQ3MDMyNjM3NywxOTc5NDc0ODE4LC0xMDQ1
-NDU3NjQ5LC0zNDYxNjA0NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MS
-wzNzA3NDQzMCwtMzc2MTg1OTY2LC0xOTI1MTA2NTc3LDE0MzUw
-MjU4MjZdfQ==
+eyJoaXN0b3J5IjpbODk1MzY2NDMwLC0xODc2MzYzNDI1LC05MD
+A0MzAzODMsLTc4OTE2MTI2NywxNzEyNzY1MTE0LC0xOTE2MzU1
+OTgyLC0xOTE3NDk3OTE5LDE5MDQxMzI5NzMsMjg1ODE1NTczLD
+QyODY4NzE1OSwtMTQxNDYyODkyNyw0NzAzMjYzNzcsMTk3OTQ3
+NDgxOCwtMTA0NTQ1NzY0OSwtMzQ2MTYwNDQxLDYyOTI0NzI5My
+wzODI5OTM2NTEsMzcwNzQ0MzAsLTM3NjE4NTk2NiwtMTkyNTEw
+NjU3N119
 -->
