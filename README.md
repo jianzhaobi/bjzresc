@@ -199,7 +199,7 @@ install.packages("rgdal", configure.args = c("--with-proj-include=/path/to/proj/
 ## Tricks of Building R Packages
 
 ### Add required dependencies
-he easiest way to add `Imports` and `Suggests` to your package is to use `devtools::use_package()`. This automatically puts them in the right place in your `DESCRIPTION`, and reminds you how to use them.
+The easiest way to add `Imports` and `Suggests` to your package is to use `devtools::use_package()`. This automatically puts them in the right place in your `DESCRIPTION`, and reminds you how to use them.
 ``` R
 devtools::use_package("dplyr") # Defaults to imports
 #> Adding dplyr to Imports
@@ -210,11 +210,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwMDQzMDM4MywtNzg5MTYxMjY3LDE3MT
-I3NjUxMTQsLTE5MTYzNTU5ODIsLTE5MTc0OTc5MTksMTkwNDEz
-Mjk3MywyODU4MTU1NzMsNDI4Njg3MTU5LC0xNDE0NjI4OTI3LD
-Q3MDMyNjM3NywxOTc5NDc0ODE4LC0xMDQ1NDU3NjQ5LC0zNDYx
-NjA0NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MSwzNzA3NDQzMCwtMz
-c2MTg1OTY2LC0xOTI1MTA2NTc3LDE0MzUwMjU4MjYsLTE5MjUx
-MDY1NzddfQ==
+eyJoaXN0b3J5IjpbLTE4NzYzNjM0MjUsLTkwMDQzMDM4MywtNz
+g5MTYxMjY3LDE3MTI3NjUxMTQsLTE5MTYzNTU5ODIsLTE5MTc0
+OTc5MTksMTkwNDEzMjk3MywyODU4MTU1NzMsNDI4Njg3MTU5LC
+0xNDE0NjI4OTI3LDQ3MDMyNjM3NywxOTc5NDc0ODE4LC0xMDQ1
+NDU3NjQ5LC0zNDYxNjA0NDEsNjI5MjQ3MjkzLDM4Mjk5MzY1MS
+wzNzA3NDQzMCwtMzc2MTg1OTY2LC0xOTI1MTA2NTc3LDE0MzUw
+MjU4MjZdfQ==
 -->

@@ -9,6 +9,7 @@
 #' @param average get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
 #' @param time.zone time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see \link{https://www.mathworks.com/help/thingspeak/time-zones-reference.html}.
 #' @param indoor whether includes indoor sites (FALSE by default).
+#' @param n.thread number of parallel threads used to download the data (1 by default).
 #'
 #' @examples
 #' purpleairDownload(site.csv = '/absolute/path/to/the/sensorlist.csv',
@@ -20,12 +21,21 @@
 #' @export
 
 
-purpleairDownload <- function(site.csv, start.date, end.date, output.path, average, time.zone = 'GMT', indoor = F) {
+purpleairDownload <- function(site.csv, start.date, end.date, output.path, average, time.zone = 'GMT', indoor = F, n.thread = 1) {
 
   if (!require('httpuv')) {
     install.packages('httpuv')
     library(httpuv)
   }
+  if (!require('foreach')) {
+    install.packages('foreach')
+    library(foreach)
+  }
+  if (!require('doMC')) {
+    install.packages('doMC')
+    library(doMC)
+  }
+  registerDoMC(n.thread)
 
   # Read the lastest sensor list
   if (class(site.csv) == 'data.frame') {
@@ -62,7 +72,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 
   #--------------Run--------------#
   # For each site
-  for (i in 1 : nrow(sites)) {
+  foreach (i = 1 : nrow(sites)) %dopar% {
 
     if (!file.exists(file.path(out.path, paste(sites$ID[i], '.csv', sep = '')))) { # Skip existing files
       if ((is.na(sites$ParentID[i])) & (!is.na(sites$DEVICE_LOCATIONTYPE[i]))) { # Skip Channel B sensors
