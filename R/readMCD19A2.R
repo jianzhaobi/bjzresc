@@ -57,21 +57,21 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
 
     # --- Convert the data to raster --- #
     # Optical_Depth_047
-    gdal_translate(sds[1], dst_dataset = paste0('tmp047', file.name, '.tiff'), b = nband) # mask is band number
+    gdal_translate(sds[1], dst_dataset = paste0('tmp047', basename(file.name), '.tiff'), b = nband) # mask is band number
     # print(sds[1])
-    r.047 <- raster(paste0('tmp047', file.name, '.tiff'))
+    r.047 <- raster(paste0('tmp047', basename(file.name), '.tiff'))
     # Optical_Depth_055
-    gdal_translate(sds[2], dst_dataset = paste0('tmp055', file.name, '.tiff'), b = nband)
+    gdal_translate(sds[2], dst_dataset = paste0('tmp055', basename(file.name), '.tiff'), b = nband)
     # print(sds[2])
-    r.055 <- raster(paste0('tmp055', file.name, '.tiff'))
+    r.055 <- raster(paste0('tmp055', basename(file.name), '.tiff'))
     # AOD_Uncertainty
-    gdal_translate(sds[3], dst_dataset = paste0('tmpuncert', file.name, '.tiff'), b = nband)
+    gdal_translate(sds[3], dst_dataset = paste0('tmpuncert', basename(file.name), '.tiff'), b = nband)
     # print(sds[3])
-    r.uncert <- raster(paste0('tmpuncert', file.name, '.tiff'))
+    r.uncert <- raster(paste0('tmpuncert', basename(file.name), '.tiff'))
     # AOD_QA
-    gdal_translate(sds[6], dst_dataset = paste0('tmpqa', file.name, '.tiff'), b = nband)
+    gdal_translate(sds[6], dst_dataset = paste0('tmpqa', basename(file.name), '.tiff'), b = nband)
     # print(sds[6])
-    r.qa <- raster(paste0('tmpqa', file.name, '.tiff'))
+    r.qa <- raster(paste0('tmpqa', basename(file.name), '.tiff'))
 
     # --- Convert the raster to data frame --- #
     df.047 <- raster::as.data.frame(r.047, xy = T)
