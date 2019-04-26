@@ -86,10 +86,10 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
     maiac.df <- data.frame(x = df.047$x, y = df.047$y, AOD_047 = df.047$AOD_047, AOD_055 = df.055$AOD_055, AOD_Uncertainty = df.uncert$AOD_Uncertainty, AOD_QA = df.qa$AOD_QA)
 
     # --- Delete temporary tiff files --- #
-    file.remove(dir('./', 'tmp047*'))
-    file.remove(dir('./', 'tmp055*'))
-    file.remove(dir('./', 'tmpuncert*'))
-    file.remove(dir('./', 'tmpqa*'))
+    file.remove(dir('./', paste0('tmp047', basename(file.name), '*')))
+    file.remove(dir('./', paste0('tmp055', basename(file.name), '*')))
+    file.remove(dir('./', paste0('tmpuncert', basename(file.name), '*')))
+    file.remove(dir('./', paste0('tmpqa', basename(file.name), '*')))
 
     # --- Projection transformation --- #
     # SINU code
