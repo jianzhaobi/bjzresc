@@ -57,21 +57,21 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
 
     # --- Convert the data to raster --- #
     # Optical_Depth_047
-    gdal_translate(sds[1], dst_dataset = 'tmp047.tiff', b = nband) # mask is band number
+    gdal_translate(sds[1], dst_dataset = paste0('tmp047', file.name, '.tiff'), b = nband) # mask is band number
     # print(sds[1])
-    r.047 <- raster('tmp047.tiff')
+    r.047 <- raster(paste0('tmp047', file.name, '.tiff'))
     # Optical_Depth_055
-    gdal_translate(sds[2], dst_dataset = 'tmp055.tiff', b = nband)
+    gdal_translate(sds[2], dst_dataset = paste0('tmp055', file.name, '.tiff'), b = nband)
     # print(sds[2])
-    r.055 <- raster('tmp055.tiff')
+    r.055 <- raster(paste0('tmp055', file.name, '.tiff'))
     # AOD_Uncertainty
-    gdal_translate(sds[3], dst_dataset = 'tmpuncert.tiff', b = nband)
+    gdal_translate(sds[3], dst_dataset = paste0('tmpuncert', file.name, '.tiff'), b = nband)
     # print(sds[3])
-    r.uncert <- raster('tmpuncert.tiff')
+    r.uncert <- raster(paste0('tmpuncert', file.name, '.tiff'))
     # AOD_QA
-    gdal_translate(sds[6], dst_dataset = 'tmpqa.tiff', b = nband)
+    gdal_translate(sds[6], dst_dataset = paste0('tmpqa', file.name, '.tiff'), b = nband)
     # print(sds[6])
-    r.qa <- raster('tmpqa.tiff')
+    r.qa <- raster(paste0('tmpqa', file.name, '.tiff'))
 
     # --- Convert the raster to data frame --- #
     df.047 <- raster::as.data.frame(r.047, xy = T)
@@ -86,10 +86,10 @@ readMCD19A2 <- function(file.name, latlong.range = NULL, border.shp = NULL) {
     maiac.df <- data.frame(x = df.047$x, y = df.047$y, AOD_047 = df.047$AOD_047, AOD_055 = df.055$AOD_055, AOD_Uncertainty = df.uncert$AOD_Uncertainty, AOD_QA = df.qa$AOD_QA)
 
     # --- Delete temporary tiff files --- #
-    file.remove(dir('./', 'tmp047.tiff*'))
-    file.remove(dir('./', 'tmp055.tiff*'))
-    file.remove(dir('./', 'tmpuncert.tiff*'))
-    file.remove(dir('./', 'tmpqa.tiff*'))
+    file.remove(dir('./', 'tmp047*'))
+    file.remove(dir('./', 'tmp055*'))
+    file.remove(dir('./', 'tmpuncert*'))
+    file.remove(dir('./', 'tmpqa*'))
 
     # --- Projection transformation --- #
     # SINU code
