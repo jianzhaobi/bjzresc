@@ -20,6 +20,11 @@ getPurpleairLst <- function(output.path = NULL) {
     library(rjson)
   }
 
+  if(!require('gtools')) {
+    install.packages('gtools')
+    library(gtools)
+  }
+
   # Make output path
   if(!is.null(output.path) && !file.exists(output.path)) {
     dir.create(output.path, recursive = T)
@@ -36,7 +41,7 @@ getPurpleairLst <- function(output.path = NULL) {
     sensor.i.lst <- sensor.lst[[i]]
     sensor.i.lst[sapply(sensor.i.lst, is.null)] <- NA # Convert NULL to NA in order to preserve it
     sensor.i <- data.frame(t(unlist(sensor.i.lst, use.names = T)), stringsAsFactors = F)
-    sensor.df <- rbind(sensor.df, sensor.i)
+    sensor.df <- gtools::smartbind(sensor.df, sensor.i) # gtools::smartbind tolerates missing columns in Channel B
   }
   # Write CSV
   if (!is.null(output.path)) {

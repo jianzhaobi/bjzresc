@@ -1,7 +1,7 @@
 Package: bjzresc
 Type: Package
 Title: Jianzhao's Research-Related Functions
-Version: 0.1.11
+Version: 0.1.12
 Author: Jianzhao Bi
 Maintainer: Jianzhao Bi <jianzhao.bi@emory.edu>
 Description: Air pollution research-related functions made by Jianzhao Bi
@@ -17,4 +17,5 @@ Suggests:
     rjson,
     httpuv,
     foreach,
-    doMC
+    doMC,
+    gtools
