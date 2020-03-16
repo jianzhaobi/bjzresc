@@ -5,7 +5,7 @@
 \title{Download Purple Air PM2.5 data}
 \usage{
 purpleairDownload(site.csv, start.date, end.date, output.path, average,
-  time.zone = "GMT", indoor = F, n.thread = 1)
+  time.zone = "GMT", indoor = T, n.thread = 1)
 }
 \arguments{
 \item{site.csv}{a data frame of a site list or a absolute path to the site CSV file (from \code{getPurpleairLst}).}
@@ -20,7 +20,7 @@ purpleairDownload(site.csv, start.date, end.date, output.path, average,
 
 \item{time.zone}{time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see \link{https://www.mathworks.com/help/thingspeak/time-zones-reference.html}.}
 
-\item{indoor}{whether includes indoor sites (FALSE by default).}
+\item{indoor}{whether includes indoor sites (TRUE by default).}
 
 \item{n.thread}{number of parallel threads used to download the data (1 by default).}
 }
