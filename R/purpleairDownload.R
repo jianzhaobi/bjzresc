@@ -83,6 +83,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
           name <- trimws(sites$Label[i]) # Remove Leading/Trailing Whitespace
           Lat <- sites$Lat[i]
           Lon <- sites$Lon[i]
+          Location <- sites$DEVICE_LOCATIONTYPE[i]
           # Channel A (Primary)
           ID.A <- sites$ID[i]
           channelID.A <- sites$THINGSPEAK_PRIMARY_ID[i]
@@ -196,6 +197,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
             dat.final$Name <- name
             dat.final$Lat <- Lat
             dat.final$Lon <- Lon
+            dat.final$Location <- Location
           }
 
           # --- Save CSV data ---
