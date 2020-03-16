@@ -69,7 +69,7 @@ sensor.lst <- getPurpleairLst()
 ``` 
 ### purpleairDownload
 ``` R
-purpleairDownload <- function(site.csv, start.date, end.date, output.path, average, time.zone = 'GMT', indoor = F)
+purpleairDownload <- function(site.csv, start.date, end.date, output.path, average, time.zone = 'GMT', indoor = T)
 ```
 * ***Description***
 	* Download Purple Air PM2.5 data and save as csv files (each PurpleAir site per file). The indoor sites are not included by default.
@@ -80,7 +80,7 @@ purpleairDownload <- function(site.csv, start.date, end.date, output.path, avera
 	* `output.path`: the path to output CSV files.
 	* `average`: get average of this many minutes, valid values: 10, 15, 20, 30, 60, 240, 720, 1440, "daily". "daily" is not recommended as the daily values can only be calculated at the UTC time.
 	* `time.zone`: time zone specification to be used for the conversion, but "" is the current time zone, and "GMT" is UTC (Universal Time, Coordinated). Invalid values are most commonly treated as UTC, on some platforms with a warning. For more time zones, see https://www.mathworks.com/help/thingspeak/time-zones-reference.html.
-	* `indoor`: whether includes indoor sites (`FALSE` by default).
+	* `indoor`: whether includes indoor sites (`TRUE` by default).
 	* `n.thread`: number of parallel threads used to download the data (1 by default).
 * ***Examples***
 ``` R
@@ -211,11 +211,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk1MzY2NDMwLC0xODc2MzYzNDI1LC05MD
-A0MzAzODMsLTc4OTE2MTI2NywxNzEyNzY1MTE0LC0xOTE2MzU1
-OTgyLC0xOTE3NDk3OTE5LDE5MDQxMzI5NzMsMjg1ODE1NTczLD
-QyODY4NzE1OSwtMTQxNDYyODkyNyw0NzAzMjYzNzcsMTk3OTQ3
-NDgxOCwtMTA0NTQ1NzY0OSwtMzQ2MTYwNDQxLDYyOTI0NzI5My
-wzODI5OTM2NTEsMzcwNzQ0MzAsLTM3NjE4NTk2NiwtMTkyNTEw
-NjU3N119
+eyJoaXN0b3J5IjpbNzc1MDY2MDgzLDg5NTM2NjQzMCwtMTg3Nj
+M2MzQyNSwtOTAwNDMwMzgzLC03ODkxNjEyNjcsMTcxMjc2NTEx
+NCwtMTkxNjM1NTk4MiwtMTkxNzQ5NzkxOSwxOTA0MTMyOTczLD
+I4NTgxNTU3Myw0Mjg2ODcxNTksLTE0MTQ2Mjg5MjcsNDcwMzI2
+Mzc3LDE5Nzk0NzQ4MTgsLTEwNDU0NTc2NDksLTM0NjE2MDQ0MS
+w2MjkyNDcyOTMsMzgyOTkzNjUxLDM3MDc0NDMwLC0zNzYxODU5
+NjZdfQ==
 -->
