@@ -28,6 +28,125 @@ cutByShp(myshp, dat, lat.name, long.name)
 ```R
 cutByShp(myshp = shp, dat = df, lat.name = 'Lat', long.name = 'Lon')
 ```
+
+## Lag-Day Creators
+### singleDayLag
+``` R
+singleDayLag(data, lag)
+```
+* ***Description***
+	* Single-Day Lag Creator
+* ***Parameters***
+	* `data`: a vector for which the single-day lag is created
+	* `lag`: a non-negative integer indicating the lag day
+* ***Return***
+	* A `crossbasis` matrix showing the single-day lag
+* ***Examples***
+``` R
+# Lag 1
+singleDayLag(data = df$pm25, lag = 1)
+```
+
+### unconDistLag
+``` R
+unconDistLag(data, lag1, lag2)
+```
+* ***Description***
+	* Unconstrained Distributed Lag Creator
+* ***Parameters***
+	* `data`: a vector for which the distributed lag is created
+	* `lag1`: a non-negative integer indicating the starting lag day (lag2 > lag1)
+	* `lag2`: a non-negative integer indicating the ending lag day (lag2 > lag1)
+* ***Return***
+	*  A `crossbasis` matrix showing the distributed lag
+* ***Examples***
+``` R
+# Lag 0-3
+unconDistLag(data = df$pm25, lag1 = 0, lag2 = 3)
+```
+
+### movAvgLag
+``` R
+movAvgLag(data, lag1, lag2)
+```
+* ***Description***
+	* Moving Average Creator
+* ***Parameters***
+	* `data`: a vector for which the moving average is created
+	* `lag1`: a non-negative integer indicating the starting lag day (lag2 > lag1)
+	* `lag2`: a non-negative integer indicating the ending lag day (lag2 > lag1)
+* ***Return***
+	*  A `crossbasis` matrix showing the moving average
+* ***Examples***
+``` R
+# MA 0-3
+movAvgLag(data = df$pm25, lag1 = 0, lag2 = 3)
+```
+
+### Examples
+
+Here is some examples showing how to use the lag-day creators. The R package `dlnm` (https://cran.r-project.org/web/packages/dlnm/index.html) is required. 
+
+The sample data, `data`, have 100 rows and 5 columns. Each row is a single day's data, and each column is a parameter:
+
+* `OUTCOME`: Daily counts of the health outcome
+* `PM25`: Daily PM2.5 levels
+* `TEMPMAX`: Daily max air temperature
+* `SEASON`: Season indicators
+* `TIME`: Time trend
+
+#### Singe-Day Lag
+This block shows the specification of the lag 3 of PM2.5 and max air temperature.
+```R
+# --- Specification --- #
+# Pollution
+pol <- singleDayLag(data = data$PM25, lag = 3)
+# Temperature control
+tmax <- singleDayLag(data = data$TEMPMAX, lag = 3)
+```
+
+#### Unconstrained Distributed Lag
+This block shows the specification of the lag 0-3 of PM2.5 and max air temperature.
+```R
+# --- Specification --- #
+# Pollution
+pol <- unconDistLag(data = data$PM25, lag1 = 0, lag2 = 3)
+# Temperature control
+tmax <- movAvgLag(data = data$TEMPMAX, lag1 = 0, lag2 = 3)
+```
+
+#### Moving Average
+This block shows the specification of the MA 0-3 of PM2.5 and max air temperature.
+```R
+# --- Specification --- #
+# Pollution
+pol <- movAvgLag(data = data$PM25, lag1 = 0, lag2 = 3)
+# Temperature control
+tmax <- movAvgLag(data = data$TEMPMAX, lag1 = 0, lag2 = 3)
+```
+
+#### Modeling and Prediction
+Here `OUTCOME` is the outcome variable, `pol` is the target pollution lag days, `tmax + I(tmax^2) + I(tmax^3)` is the square and cubic terms of max temperature, `ns(TIME, df = 3)` is  time splines with degrees of freedom of 3, and `SEASON` is the season indicator. 
+
+For `glm`, `quasipoisson` is the Quasi-Poisson model to account for overdispersion. For `crosspred`, `at` is each unit increase of the pollutant, and `ci.level` is the confidence interval.
+
+Note: for the time splines, the R package `splines` is required.
+```R
+library(splines)
+
+# --- Formula --- #
+fm <- OUTCOME ~ pol + tmax + I(tmax^2) + I(tmax^3) + ns(TIME, df = 3) + SEASON
+
+# --- Modeling --- #
+mdl <- glm(formula = fm, family = quasipoisson(), data = data)
+pred <- crosspred(basis = pol, model = mdl, at = 10, ci.level = 0.95)
+
+# --- Rate Ratios --- #
+RR <-  pred$allRRfit
+RR.Low <- pred$allRRlow
+RR.High <- pred$allRRhigh
+```
+
 ## MCD19A2 (MAIAC AOD)
 
 ### readMCD19A2
@@ -211,11 +330,11 @@ devtools::use_package("dplyr", "Suggests")
 #>  installed, then use dplyr::fun() to refer to functions.
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc1MDY2MDgzLDg5NTM2NjQzMCwtMTg3Nj
-M2MzQyNSwtOTAwNDMwMzgzLC03ODkxNjEyNjcsMTcxMjc2NTEx
-NCwtMTkxNjM1NTk4MiwtMTkxNzQ5NzkxOSwxOTA0MTMyOTczLD
-I4NTgxNTU3Myw0Mjg2ODcxNTksLTE0MTQ2Mjg5MjcsNDcwMzI2
-Mzc3LDE5Nzk0NzQ4MTgsLTEwNDU0NTc2NDksLTM0NjE2MDQ0MS
-w2MjkyNDcyOTMsMzgyOTkzNjUxLDM3MDc0NDMwLC0zNzYxODU5
-NjZdfQ==
+eyJoaXN0b3J5IjpbLTQzMjMzMDU5MSwxNjE2NzEzMDgxLDc3NT
+A2NjA4Myw4OTUzNjY0MzAsLTE4NzYzNjM0MjUsLTkwMDQzMDM4
+MywtNzg5MTYxMjY3LDE3MTI3NjUxMTQsLTE5MTYzNTU5ODIsLT
+E5MTc0OTc5MTksMTkwNDEzMjk3MywyODU4MTU1NzMsNDI4Njg3
+MTU5LC0xNDE0NjI4OTI3LDQ3MDMyNjM3NywxOTc5NDc0ODE4LC
+0xMDQ1NDU3NjQ5LC0zNDYxNjA0NDEsNjI5MjQ3MjkzLDM4Mjk5
+MzY1MV19
 -->
