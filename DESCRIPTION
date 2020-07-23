@@ -18,5 +18,4 @@ Suggests:
     httpuv,
     foreach,
     doMC,
-    gtools,
     dlnm
