@@ -15,9 +15,9 @@
 
 getPurpleairLst <- function(output.path = NULL) {
 
-  if(!require('rjson')) {
-    install.packages('rjson')
-    library(rjson)
+  if(!require('jsonlite')) {
+    install.packages('jsonlite')
+    library(jsonlite)
   }
 
   if(!require('gtools')) {
@@ -31,7 +31,8 @@ getPurpleairLst <- function(output.path = NULL) {
   }
 
   # Load JSON from URL
-  json.file <- fromJSON(file = 'https://www.purpleair.com/json')
+  Sys.sleep(3) # Pause for 3 seconds to prevent HTTP Error 429
+  json.file <- jsonlite::fromJSON('https://www.purpleair.com/json')
   # Load sensor list
   sensor.lst <- json.file$results
   # For each sensor
