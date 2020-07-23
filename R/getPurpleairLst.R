@@ -26,8 +26,20 @@ getPurpleairLst <- function(output.path = NULL) {
   }
 
   # Load JSON from URL
-  Sys.sleep(3) # Pause for 3 seconds to prevent HTTP Error 429
-  json.file <- jsonlite::fromJSON('https://www.purpleair.com/json')
+  idx <- T
+  while(idx) {
+    tryCatch(expr = {
+      Sys.sleep(2) # Pause for 2 seconds to prevent HTTP Error 429
+      json.file <- jsonlite::fromJSON('https://www.purpleair.com/json')
+      idx <- F
+    },
+    error = function(e) {
+      # print(e)
+      Sys.sleep(2)
+      idx <- T
+    })
+  }
+
   # Load sensor list
   sensor.df <- json.file$results
   # Write CSV
