@@ -30,7 +30,7 @@ getPurpleairLst <- function(output.path = NULL) {
   while(idx) {
     tryCatch(expr = {
       Sys.sleep(2) # Pause for 2 seconds to prevent HTTP Error 429
-      json.file <- jsonlite::fromJSON('https://www.purpleair.com/json')
+      json.file <- jsonlite::fromJSON('http://www.purpleair.com/json?tempAccess=UniversityofWashingtonSeattle')
       idx <- F
     },
     error = function(e) {
